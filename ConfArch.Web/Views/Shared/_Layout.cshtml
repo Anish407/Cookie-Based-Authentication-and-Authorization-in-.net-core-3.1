@@ -9,15 +9,23 @@
     <link href="~/site.css" rel="stylesheet" />
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <img src="~/img/ConfArchSmall.png" style="max-width:100%" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="~/img/ConfArchSmall.png" style="max-width:100%" />
+            </div>
+            <div class="col-md-9 titlecol">
+                <span class="title">@ViewBag.Title</span>
+            </div>
+          
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="text-right">
+                    <a class="btn btn-danger" href="/Account/Logout">Logout</a>
+                </div>
+            }
+           
         </div>
-        <div class="col-md-9 titlecol">
-            <span class="title">@ViewBag.Title</span>           
-        </div>
-    </div>
         <div>
             @RenderBody()
         </div>
